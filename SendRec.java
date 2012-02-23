@@ -4,7 +4,6 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.QueueingConsumer;
-
 import java.io.IOException;
 
 public class SendRec {
@@ -70,7 +69,6 @@ public class SendRec {
 
     public static void main(String[] argv) {
         SendRec sr = new SendRec();
-
 
         System.out.println("Sending");
         if(!sr.send())
