@@ -1,6 +1,7 @@
 /**
  * From object to XML via JAXB
- * info and comments: http://bitingcode.blogspot.com/2012/10/from-object-to-xml.html
+ * marshalling: http://bitingcode.blogspot.com/2012/10/from-object-to-xml.html
+ * unmarshalling: http://bitingcode.blogspot.com/2012/11/from-xml-to-object.html
  */
 package jaxb;
 
