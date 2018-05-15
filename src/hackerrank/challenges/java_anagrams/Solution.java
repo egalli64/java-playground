@@ -3,7 +3,7 @@
  * 
  * @author: Manny egalli64@gmail.com
  * @see: http://thisthread.blogspot.com/
- *       https://www.hackerrank.com/challenges/equal/problem
+ *       https://www.hackerrank.com/challenges/java-anagrams/problem
  *
  * Check if the second passed string is an anagram of the first one
  */
