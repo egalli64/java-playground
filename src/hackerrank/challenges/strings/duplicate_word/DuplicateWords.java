@@ -8,7 +8,7 @@
  * Remove duplicated words from passed strings
  * Using regex, pattern should be case insensitive
  */
-package hackerrank.challenges.duplicate_word;
+package hackerrank.challenges.strings.duplicate_word;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;

@@ -7,7 +7,7 @@
  *
  * Check if the second passed string is an anagram of the first one
  */
-package hackerrank.challenges.java_anagrams;
+package hackerrank.challenges.strings.java_anagrams;
 
 import java.util.HashMap;
 import java.util.Map;

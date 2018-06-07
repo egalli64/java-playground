@@ -7,7 +7,7 @@
  *
  * find the biggest "hourglass" in a matrix 6x6 of values from [-9..9]
  */
-package hackerrank.challenges.java_2d_array;
+package hackerrank.challenges.dataStructures.java_2d_array;
 
 import java.util.Scanner;
 

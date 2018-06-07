@@ -7,7 +7,7 @@
  *
  * get two strings from stdin, convert them in (big!) integer, output their sum and product
  */
-package hackerrank.challenges.java_biginteger;
+package hackerrank.challenges.bigNumber.java_biginteger;
 
 import java.math.BigInteger;
 import java.util.Scanner;

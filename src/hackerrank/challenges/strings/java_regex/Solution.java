@@ -13,7 +13,7 @@
  * Leading zeros are allowed
  * The length of A, B, C, or D can't be greater than 3
  */
-package hackerrank.challenges.java_regex;
+package hackerrank.challenges.strings.java_regex;
 
 import java.util.Scanner;
 

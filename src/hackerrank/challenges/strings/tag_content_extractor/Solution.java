@@ -7,7 +7,7 @@
  *
  * Print the text inside XML tags found in the input string
  */
-package hackerrank.challenges.tag_content_extractor;
+package hackerrank.challenges.strings.tag_content_extractor;
 
 import java.util.*;
 import java.util.regex.*;

@@ -10,7 +10,7 @@
  * - alphanumeric and underscore
  * - first char alphabetic
  */
-package hackerrank.challenges.valid_username_checker;
+package hackerrank.challenges.strings.valid_username_checker;
 
 import java.util.Scanner;
 

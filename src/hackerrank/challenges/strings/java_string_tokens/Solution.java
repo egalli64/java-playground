@@ -8,7 +8,7 @@
  * Split the input against " !,?._'@",
  *  output the number of resulting (non empty) tokens, and each of them on a new line
  */
-package hackerrank.challenges.java_string_tokens;
+package hackerrank.challenges.strings.java_string_tokens;
 
 import java.util.Arrays;
 import java.util.List;

@@ -8,7 +8,7 @@
  * sort an array of strings representing (big!) real numbers
  * in descending order (as numbers) than print them in the original format
  */
-package hackerrank.challenges.java_bigdecimal;
+package hackerrank.challenges.bigNumber.java_bigdecimal;
 
 import java.math.BigDecimal;
 import java.util.Arrays;

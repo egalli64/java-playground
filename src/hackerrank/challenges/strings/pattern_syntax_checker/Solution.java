@@ -7,7 +7,7 @@
  *
  * Check if a string is a valid regex pattern
  */
-package hackerrank.challenges.pattern_syntax_checker;
+package hackerrank.challenges.strings.pattern_syntax_checker;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;
