@@ -1,10 +1,7 @@
-/**
- * CoinChangerTest.java
+/*
+ * Java Playground
  * 
- * Dynamic programming solution to the classic Change Making problem
- * More info: http://bitingcode.blogspot.com/2016/12/minimum-number-of-coins-to-make-change.html
- * 
- * @author manny egalli64@gmail.com
+ * https://github.com/egalli64/java-playground
  */
 package fun;
 
@@ -12,15 +9,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Dynamic programming solution to the classic Change Making problem
+ * <p>
+ * http://bitingcode.blogspot.com/2016/12/minimum-number-of-coins-to-make-change.html
+ */
 public class CoinChanger {
     /**
      * Find the minimum number of coins required for the specified amount. An
      * infinite amount of coins is supposed to be available.
      * 
-     * @param amount
-     *            The amount to be generated.
-     * @param coins
-     *            The denomination of the available coins.
+     * @param amount The amount to be generated.
+     * @param coins  The denomination of the available coins.
      * @return Minimum number of coins required.
      */
     public static int minNumCoins(int amount, List<Integer> coins) {
@@ -29,14 +29,14 @@ public class CoinChanger {
 
         List<Integer> results = new ArrayList<>(amount + 1);
         results.add(0);
-        for(int i = 1; i <= amount; ++i) {
+        for (int i = 1; i <= amount; ++i) {
             results.add(Integer.MAX_VALUE);
-            for(int coin : coins) {
-                if(coin > i)
+            for (int coin : coins) {
+                if (coin > i)
                     break;
 
                 int tentative = results.get(i - coin) + 1;
-                if(tentative < results.get(i)) {
+                if (tentative < results.get(i)) {
                     results.set(i, tentative);
                 }
             }
@@ -46,14 +46,15 @@ public class CoinChanger {
     }
 
     private static boolean isConsistent(List<Integer> coins) {
-        if(coins == null || coins.isEmpty())
+        if (coins == null || coins.isEmpty() || coins.get(0) != 1) {
             return false;
-        if(coins.get(0) != 1)
-            return false;
-        for(int i = 1; i < coins.size(); ++i) {
-            if(coins.get(i) <= coins.get(i - 1))
-                return false;
         }
+        for (int i = 1; i < coins.size(); ++i) {
+            if (coins.get(i) <= coins.get(i - 1)) {
+                return false;
+            }
+        }
+
         return true;
     }
 
@@ -65,17 +66,17 @@ public class CoinChanger {
         descendingCoins.sort(Collections.reverseOrder());
 
         int counter = 0;
-        for(int coin : descendingCoins) {
-            while(amount >= coin) {
+        for (int coin : descendingCoins) {
+            while (amount >= coin) {
                 amount -= coin;
-                ++counter;
-                if(amount == 0)
+                counter += 1;
+                if (amount == 0) {
                     return counter;
+                }
             }
         }
 
-        // Unexpected. Possibly an inconsistent list of coins has been passed
-        // in.
+        // Unexpected. Maybe an inconsistent list of coins has been passed in.
         return -1;
     }
 }

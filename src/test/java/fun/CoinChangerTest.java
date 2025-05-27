@@ -1,10 +1,7 @@
-/**
- * CoinChangerTest.java
+/*
+ * Java Playground
  * 
- * Dynamic programming solution to the classic Change Making problem
- * More info: http://bitingcode.blogspot.com/2016/12/minimum-number-of-coins-to-make-change.html
- * 
- * @author manny egalli64@gmail.com
+ * https://github.com/egalli64/java-playground
  */
 package fun;
 
