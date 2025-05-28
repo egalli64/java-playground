@@ -3,7 +3,9 @@
  * 
  * https://github.com/egalli64/java-playground
  * 
- * Examples from Effective Java (3rd edition) by Joshua Block 
+ * Examples from Effective Java (3rd edition) by Joshua Block
+ * 
+ * Chapter 2: Creating and Destroying Objects
  */
 package effective.ch2;
 
@@ -26,12 +28,11 @@ public class Item1 {
     private static Logger log = LoggerFactory.getLogger(Item1.class);
 
     public static void main(String[] args) {
-        // calling a static factory method is expressive
-        // and could not create a new object (all the primitive wrappers are immutable)
+        // Expressive and not strictly bound to the creation of a new object
         Boolean flag = Boolean.valueOf(true);
         log.info("The flag is {}", flag);
 
-        // calling a ctor could be obscure
+        // the meaning of a constructor could be less expressive
         BigInteger bigInt = new BigInteger(8, 10, new Random());
         log.info("The bigInt is {}", bigInt);
 
@@ -51,11 +52,11 @@ public class Item1 {
         // create / newInstance - stress the fact a new instance is created
         log.info("A new int array: {}", Array.newInstance(int.class, 5));
 
-        // getXyz / newXyz / xyz - a new Xyz object from a different class
+        // getXyz / newXyz / xyz - for a new Xyz object from a different class
         log.info("An array list from an enumeration: {}", Collections.list(Collections.enumeration(values)));
     }
 
-    enum Friends {
+    private enum Friends {
         TOM, BOB, JOE
     }
 }
