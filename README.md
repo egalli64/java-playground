@@ -10,3 +10,4 @@ Some (hopefully) useful Java code
 - [Item 4: Enforce non-instantiability with a private constructor](src/main/java/effective/ch2/Item4.java)
 - [Item 5: Prefer dependency injection to hard-wiring resources](src/main/java/effective/ch2/Item5.java)
 - [Item 6: Avoid creating unnecessary objects](src/main/java/effective/ch2/Item6.java)
+- [Item 7: Eliminate obsolete object references](src/main/java/effective/ch2/Item7.java)
