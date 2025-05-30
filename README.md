@@ -1,7 +1,5 @@
 # java-playground
 
-Some (hopefully) useful Java code
-
 ## From "Effective Java" (3rd edition), by Joshua Block
 ### [Chapter 2 - Creating and Destroying Objects](src/main/java/effective/ch2)
 - [Item 1: Consider static factory methods instead of constructors](src/main/java/effective/ch2/Item1.java)
@@ -12,3 +10,4 @@ Some (hopefully) useful Java code
 - [Item 6: Avoid creating unnecessary objects](src/main/java/effective/ch2/Item6.java)
 - [Item 7: Eliminate obsolete object references](src/main/java/effective/ch2/Item7.java)
 - [Item 8: Avoid finalizers and cleaners](src/main/java/effective/ch2/Item8.java)
+- [Item 9: Prefer try-with-resources to try-finally](src/main/java/effective/ch2/Item9.java)
