@@ -11,3 +11,4 @@ Some (hopefully) useful Java code
 - [Item 5: Prefer dependency injection to hard-wiring resources](src/main/java/effective/ch2/Item5.java)
 - [Item 6: Avoid creating unnecessary objects](src/main/java/effective/ch2/Item6.java)
 - [Item 7: Eliminate obsolete object references](src/main/java/effective/ch2/Item7.java)
+- [Item 8: Avoid finalizers and cleaners](src/main/java/effective/ch2/Item8.java)
