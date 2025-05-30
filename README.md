@@ -11,3 +11,6 @@
 - [Item 7: Eliminate obsolete object references](src/main/java/effective/ch2/Item7.java)
 - [Item 8: Avoid finalizers and cleaners](src/main/java/effective/ch2/Item8.java)
 - [Item 9: Prefer try-with-resources to try-finally](src/main/java/effective/ch2/Item9.java)
+
+### [Chapter 3 - Methods Common to All Objects](src/main/java/effective/ch3)
+- [Item 10: Obey the general contract when overriding equals](src/main/java/effective/ch3/Item10.java)
