@@ -14,6 +14,10 @@ import org.slf4j.LoggerFactory;
 
 import effective.ch3.i10.CaseInsensitiveString;
 import effective.ch3.i10.CaseInsensitiveStringFix;
+import effective.ch3.i10.Color;
+import effective.ch3.i10.ColorPoint;
+import effective.ch3.i10.ColorPointFix;
+import effective.ch3.i10.Point;
 
 /**
  * Obey the general contract when overriding equals
@@ -43,7 +47,7 @@ public class Item10 {
         }
     }
 
-    // remove the annotation to let Java signal "strange" calls to equals()
+    // remove the annotation to let the compiler signal "strange" calls to equals()
     @SuppressWarnings("unlikely-arg-type")
     private static void symmetryRespected() {
         CaseInsensitiveStringFix cis = new CaseInsensitiveStringFix("Polish");
@@ -54,10 +58,52 @@ public class Item10 {
         }
 
         if (!cis.equals(s)) {
-            log.info("{} not equal to {}", cis, s);
+            log.info("{} is not equal to {}", cis, s);
         }
         if (!s.equals(cis)) {
-            log.warn("{} not equal to {}", s, cis);
+            log.warn("{} is not equal to {}", s, cis);
+        }
+    }
+
+    private static void transitivityViolation() {
+        ColorPoint p1 = new ColorPoint(1, 2, Color.RED);
+        Point p2 = new Point(1, 2);
+        ColorPoint p3 = new ColorPoint(1, 2, Color.BLUE);
+
+        if (p1.equals(p2) != p1.equals(p3) || p1.equals(p2) != p2.equals(p3)) {
+            log.warn("Transitivity violation detected among {}, {} and {}", p1, p2, p3);
+        }
+
+        if (p1.equals(p2)) {
+            log.info("{} equals {}", p1, p2);
+        }
+        if (p2.equals(p3)) {
+            log.info("{} equals {}", p2, p3);
+        }
+        if (!p1.equals(p3)) {
+            log.info("{} is not equal to {}", p1, p3);
+        }
+    }
+
+    // remove the annotation to let the compiler signal "strange" calls to equals()
+    @SuppressWarnings("unlikely-arg-type")
+    private static void transitivityRespected() {
+        ColorPointFix p1 = new ColorPointFix(1, 2, Color.RED);
+        Point p2 = new Point(1, 2);
+        ColorPointFix p3 = new ColorPointFix(1, 2, Color.BLUE);
+
+        if (p1.equals(p2) == p1.equals(p3) && p1.equals(p2) == p2.equals(p3)) {
+            log.warn("No transitivity violation detected among {}, {} and {}", p1, p2, p3);
+        }
+
+        if (!p1.equals(p2)) {
+            log.info("{} is not equal to {}", p1, p2);
+        }
+        if (!p2.equals(p3)) {
+            log.info("{} is not equal to {}", p2, p3);
+        }
+        if (!p1.equals(p3)) {
+            log.info("{} is not equal to {}", p1, p3);
         }
     }
 
@@ -67,6 +113,10 @@ public class Item10 {
         // symmetry must be respected!
         symmetryViolation();
         symmetryRespected();
+
+        // transitivity must be respected!
+        transitivityViolation();
+        transitivityRespected();
 
         log.trace("Exit");
     }
