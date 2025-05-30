@@ -22,6 +22,8 @@ import effective.ch2.i8.ResourceFinalize;
 public class Item8 {
     private static Logger log = LoggerFactory.getLogger(Item8.class);
 
+    // comment out the annotation to let Java warn us about a resource not closed
+    @SuppressWarnings("resource")
     public static void main(String[] args) {
         log.trace("Enter");
 
@@ -56,7 +58,8 @@ public class Item8 {
         // 4. Safety net on sloppy usage of ResourceCloser
         log.info("Sloppy use of ResourceCloser");
         for (int i = 0; i < 3; i++) {
-            // notice the warning: Resource leak: closeable is never closed
+            // the @SuppressWarnings annotation hides ...
+            // Resource leak: closeable is never closed
             new ResourceCloser(i).access();
         }
 
