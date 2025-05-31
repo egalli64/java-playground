@@ -17,6 +17,7 @@ import effective.ch3.i10.CaseInsensitiveStringFix;
 import effective.ch3.i10.Color;
 import effective.ch3.i10.ColorPoint;
 import effective.ch3.i10.ColorPointFix;
+import effective.ch3.i10.PhoneNumber;
 import effective.ch3.i10.Point;
 
 /**
@@ -117,6 +118,14 @@ public class Item10 {
         // transitivity must be respected!
         transitivityViolation();
         transitivityRespected();
+
+        // a class with a symmetric, transitive, consistent equals() method
+        PhoneNumber pn1 = new PhoneNumber(12, 42, 8998);
+        PhoneNumber pn2 = new PhoneNumber(12, 42, 8997);
+
+        if (!pn1.equals(pn2)) {
+            log.info("{} is not equal to {}", pn1, pn2);
+        }
 
         log.trace("Exit");
     }
