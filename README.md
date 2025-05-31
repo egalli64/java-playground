@@ -15,3 +15,4 @@
 ### [Chapter 3 - Methods Common to All Objects](src/main/java/effective/ch3)
 - [Item 10: Obey the general contract when overriding equals](src/main/java/effective/ch3/Item10.java)
 - [Item 11: Always override hashCode when you override equals](src/main/java/effective/ch3/Item11.java)
+- [Item 12: Always override toString](src/main/java/effective/ch3/Item12.java)
