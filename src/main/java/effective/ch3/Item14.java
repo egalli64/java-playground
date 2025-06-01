@@ -9,6 +9,7 @@
  */
 package effective.ch3;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -24,7 +25,7 @@ public class Item14 {
     private static Logger log = LoggerFactory.getLogger(Item14.class);
 
     /**
-     * Being Comparable, the class String has a natural order for its object
+     * Being Comparable, the class String has a natural order for its objects
      */
     private static void comparableString() {
         String[] names = { "Tom", "Bob", "Joe" };
@@ -45,10 +46,35 @@ public class Item14 {
         }
     }
 
+    /**
+     * BigDecimal is Comparable, but comparedTo is inconsistent with equals!
+     */
+    private static void inconsistentBigDecimal() {
+        BigDecimal x = new BigDecimal("1.0");
+        BigDecimal y = new BigDecimal("1.00");
+
+        // equals compare value and scale: here it gives false
+        System.out.printf("Is %s equal to %s (equals)? %b\n", x, y, x.equals(y));
+        // compareTo does not consider the scale: here gives 0
+        System.out.printf("Is %s equal to %s (compareTo)? %b\n", x, y, x.compareTo(y) == 0); // true
+
+        if (x.equals(y) != (x.compareTo(y) == 0)) {
+            log.warn("Inconsistency between equals and compareTo for BigDecimal!");
+        }
+
+        // TreeSet use compareTo, so it considers x and y same
+        Set<BigDecimal> set = new TreeSet<>(List.of(x, y));
+        if (set.size() != 2) {
+            log.warn("Beware of BigDecimal inconsistency!");
+        }
+
+    }
+
     public static void main(String[] args) {
         log.trace("Enter");
 
         comparableString();
+        inconsistentBigDecimal();
 
         log.trace("Exit");
     }
