@@ -18,6 +18,8 @@ import java.util.TreeSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import effective.ch3.i14.CaseInsensitiveString;
+
 /**
  * Consider implementing Comparable
  */
@@ -53,21 +55,32 @@ public class Item14 {
         BigDecimal x = new BigDecimal("1.0");
         BigDecimal y = new BigDecimal("1.00");
 
-        // equals compare value and scale: here it gives false
+        // equals compare value and scale: here it returns false
         System.out.printf("Is %s equal to %s (equals)? %b\n", x, y, x.equals(y));
-        // compareTo does not consider the scale: here gives 0
+        // compareTo does not consider the scale: here it returns 0
         System.out.printf("Is %s equal to %s (compareTo)? %b\n", x, y, x.compareTo(y) == 0); // true
 
         if (x.equals(y) != (x.compareTo(y) == 0)) {
             log.warn("Inconsistency between equals and compareTo for BigDecimal!");
         }
 
-        // TreeSet use compareTo, so it considers x and y same
+        // TreeSet uses compareTo for comparisons, so it considers x and y equal
         Set<BigDecimal> set = new TreeSet<>(List.of(x, y));
         if (set.size() != 2) {
             log.warn("Beware of BigDecimal inconsistency!");
         }
+    }
 
+    /**
+     * User defined class with its own comparator (single field)
+     */
+    private static void singleFieldComparable() {
+        CaseInsensitiveString cis = new CaseInsensitiveString("Java");
+        CaseInsensitiveString cis2 = new CaseInsensitiveString("java");
+
+        if (cis.compareTo(cis2) == 0 && cis.equals(cis2)) {
+            log.info("This class natural comparator works as expected (single field)");
+        }
     }
 
     public static void main(String[] args) {
@@ -75,6 +88,7 @@ public class Item14 {
 
         comparableString();
         inconsistentBigDecimal();
+        singleFieldComparable();
 
         log.trace("Exit");
     }
