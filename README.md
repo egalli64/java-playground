@@ -17,3 +17,4 @@
 - [Item 11: Always override hashCode when you override equals](src/main/java/effective/ch3/Item11.java)
 - [Item 12: Always override toString](src/main/java/effective/ch3/Item12.java)
 - [Item 13: Override clone judiciously](src/main/java/effective/ch3/Item13.java)
+- [Item 14: Consider implementing Comparable](src/main/java/effective/ch3/Item14.java)
