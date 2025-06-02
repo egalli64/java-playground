@@ -9,12 +9,14 @@
  */
 package effective.ch4;
 
+import java.util.HashSet;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import effective.ch4.i18.InstrumentedHashSet;
+import effective.ch4.i18.InstrumentedSet;
 
 /**
  * Favor composition over inheritance
@@ -34,10 +36,20 @@ public class Item18 {
         log.warn("Counter for add gives {}", s.getAddCount());
     }
 
+    private static void compositionWithForwarding() {
+        InstrumentedSet<String> s = new InstrumentedSet<>(new HashSet<>());
+        s.addAll(List.of("Snap", "Crackle", "Pop"));
+
+        // The logic for instrumenting is all in the wrapper
+        log.info("Size of set is {}", s.size());
+        log.info("Counter for add gives {}", s.getAddCount());
+    }
+
     public static void main(String[] args) {
         log.trace("Enter");
 
         fragileBaseClass();
+        compositionWithForwarding();
 
         log.trace("Exit");
     }
