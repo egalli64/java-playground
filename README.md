@@ -22,3 +22,4 @@
 ### [Chapter 4 - Classes and Interfaces](src/main/java/effective/ch4)
 - [Item 15: Minimize the accessibility of classes and members](src/main/java/effective/ch3/Item15.java)
 - [Item 16: In public classes, use accessor methods, not public fields](src/main/java/effective/ch3/Item16.java)
+- [Item 17: Minimize mutability](src/main/java/effective/ch3/Item17.java)
