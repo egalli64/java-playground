@@ -18,3 +18,6 @@
 - [Item 12: Always override toString](src/main/java/effective/ch3/Item12.java)
 - [Item 13: Override clone judiciously](src/main/java/effective/ch3/Item13.java)
 - [Item 14: Consider implementing Comparable](src/main/java/effective/ch3/Item14.java)
+
+### [Chapter 4 - Classes and Interfaces](src/main/java/effective/ch4)
+- [Item 15: Minimize the accessibility of classes and members](src/main/java/effective/ch3/Item15.java)
