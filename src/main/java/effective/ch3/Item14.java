@@ -19,6 +19,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import effective.ch3.i14.CaseInsensitiveString;
+import effective.ch3.i14.PhoneNumber;
+import effective.ch3.i14.PhoneNumberAlt;
 
 /**
  * Consider implementing Comparable
@@ -83,12 +85,38 @@ public class Item14 {
         }
     }
 
+    /**
+     * User defined class with its own comparator (multiple field)
+     */
+    private static void multiFieldComparable() {
+        PhoneNumber pn = new PhoneNumber(1, 2, 3);
+        PhoneNumber pn2 = new PhoneNumber(1, 2, 3);
+
+        if (pn.compareTo(pn2) == 0 && pn.equals(pn2)) {
+            log.info("This class natural comparator works as expected (multi field)");
+        }
+    }
+
+    /**
+     * User defined class with its own comparator (alternative multiple field)
+     */
+    private static void multiFieldComparableAlt() {
+        PhoneNumberAlt pn = new PhoneNumberAlt(1, 2, 3);
+        PhoneNumberAlt pn2 = new PhoneNumberAlt(1, 2, 3);
+
+        if (pn.compareTo(pn2) == 0 && pn.equals(pn2)) {
+            log.info("This class natural comparator works as expected (alt multi field)");
+        }
+    }
+
     public static void main(String[] args) {
         log.trace("Enter");
 
         comparableString();
         inconsistentBigDecimal();
         singleFieldComparable();
+        multiFieldComparable();
+        multiFieldComparableAlt();
 
         log.trace("Exit");
     }
