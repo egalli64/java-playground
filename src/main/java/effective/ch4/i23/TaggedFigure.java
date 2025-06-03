@@ -19,14 +19,15 @@ public class TaggedFigure {
         RECTANGLE, CIRCLE
     };
 
+    // the object tag
     public final Shape shape;
 
     // fields for RECTANGLE
-    double length;
-    double width;
+    private double length;
+    private double width;
 
     // field for CIRCLE
-    double radius;
+    private double radius;
 
     /**
      * Constructor for circle
