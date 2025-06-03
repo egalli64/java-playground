@@ -12,6 +12,9 @@ package effective.ch4;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import effective.ch4.i23.Circle;
+import effective.ch4.i23.Figure;
+import effective.ch4.i23.Rectangle;
 import effective.ch4.i23.TaggedFigure;
 
 /**
@@ -31,10 +34,19 @@ public class Item23 {
         log.info("The figure is a {} with area {}", circle.shape, circle.area());
     }
 
+    private static void classHierarchy() {
+        Figure rectangle = new Rectangle(6, 7);
+        log.info("This rectangle has area {}", rectangle.area());
+
+        Figure circle = new Circle(3.66);
+        log.info("This circle has area {}", circle.area());
+    }
+
     public static void main(String[] args) {
         log.trace("Enter");
 
         taggedClass();
+        classHierarchy();
 
         log.trace("Exit");
     }
