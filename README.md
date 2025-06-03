@@ -33,4 +33,4 @@
 - [Item 25: Limit source files to a single top-level class]
 
 ### [Chapter 5 - Generics](src/main/java/effective/ch5)
-- [Item 26: Don't use raw types]
+- [Item 26: Don't use raw types](src/main/java/effective/ch5/Item26.java)
