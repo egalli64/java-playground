@@ -11,6 +11,7 @@ package effective.ch5;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,7 +46,7 @@ public class Item26 {
     }
 
     /**
-     * !!! Acceptable only as legacy code (that requires refactoring) !!!
+     * !!! Acceptable only as legacy code (that should be refactored) !!!
      * 
      * @param list a raw collection - the compiler warns about its usage
      * @param obj  the object to be added
@@ -61,6 +62,48 @@ public class Item26 {
      */
     static void saferAdd(List<Object> list, Object obj) {
         list.add(obj);
+    }
+
+    // Use of raw type for unknown element type - don't do this!
+    /**
+     * !!! Acceptable only as legacy code (that should be refactored) !!!
+     * <p>
+     * The parametric type is not relevant for the algorithm
+     */
+    @SuppressWarnings("rawtypes")
+    static int numElementsInCommonUnsafe(Set left, Set right) {
+        int result = 0;
+
+        // the compiler can only issue a warning
+//        left.add(42);
+
+        for (Object obj : left) {
+            if (right.contains(obj)) {
+                result += 1;
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Refactored for safety
+     * <p>
+     * Can't add anything (but null) if the parametric type is unknown
+     */
+    static int numElementsInCommon(Set<?> left, Set<?> right) {
+        int result = 0;
+
+        // won't compile
+//        left.add(42);
+
+        for (Object obj : left) {
+            if (right.contains(obj)) {
+                result += 1;
+            }
+        }
+
+        return result;
     }
 
     public static void main(String[] args) {
@@ -80,6 +123,16 @@ public class Item26 {
 
         // won't compile
 //        saferAdd(strings, Integer.valueOf(42));
+
+        // raw collection vs unbounded wild-card type collection
+        Set<Integer> values = Set.of(1, 2, 3);
+        Set<Integer> values2 = Set.of(1, 42, 35);
+
+        int x = numElementsInCommonUnsafe(values, values2);
+        log.warn("The two sets have {} elements in common", x);
+
+        x = numElementsInCommon(values, values2);
+        log.warn("The two sets have {} elements in common", x);
 
         log.trace("Exit");
     }
