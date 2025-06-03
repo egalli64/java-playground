@@ -28,3 +28,4 @@
 - [Item 20: Prefer interfaces to abstract classes]
 - [Item 21: Design interfaces for posterity]
 - [Item 22: Use interfaces only to define types](src/main/java/effective/ch4/Item22.java)
+- [Item 23: Prefer class hierarchies to tagged classes](src/main/java/effective/ch4/Item23.java)
