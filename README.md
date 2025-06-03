@@ -31,3 +31,6 @@
 - [Item 23: Prefer class hierarchies to tagged classes](src/main/java/effective/ch4/Item23.java)
 - [Item 24: Favor static member classes over non-static]
 - [Item 25: Limit source files to a single top-level class]
+
+### [Chapter 5 - Generics](src/main/java/effective/ch5)
+- [Item 26: Don't use raw types]
