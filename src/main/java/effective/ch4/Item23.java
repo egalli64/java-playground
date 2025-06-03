@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import effective.ch4.i23.Circle;
 import effective.ch4.i23.Figure;
 import effective.ch4.i23.Rectangle;
+import effective.ch4.i23.Square;
 import effective.ch4.i23.TaggedFigure;
 
 /**
@@ -42,11 +43,20 @@ public class Item23 {
         log.info("This circle has area {}", circle.area());
     }
 
+    /**
+     * Adding a class a hierarchy is easier than modifying a tagged class
+     */
+    private static void addedClass() {
+        Figure square = new Square(6.481);
+        log.info("This square has area {}", square.area());
+    }
+
     public static void main(String[] args) {
         log.trace("Enter");
 
         taggedClass();
         classHierarchy();
+        addedClass();
 
         log.trace("Exit");
     }
