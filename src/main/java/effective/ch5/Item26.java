@@ -9,10 +9,14 @@
  */
 package effective.ch5;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import effective.ch5.i26.LegacyRawCollectionUser;
+import effective.ch5.i26.ParametrizedCollectionUser;
 
 /**
  * Don’t use raw types
@@ -34,10 +38,48 @@ public class Item26 {
         }
     }
 
+    private static void refactoredCollection() {
+        ParametrizedCollectionUser pu = new ParametrizedCollectionUser();
+        log.warn("A parametrized collection: {}", pu);
+        pu.doSomething();
+    }
+
+    /**
+     * !!! Acceptable only as legacy code (that requires refactoring) !!!
+     * 
+     * @param list a raw collection - the compiler warns about its usage
+     * @param obj  the object to be added
+     */
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    private static void unsafeAdd(List list, Object obj) {
+        // the compiler warns about the dangerous call
+        list.add(obj);
+    }
+
+    /**
+     * The compiler is smarter enough to check the arguments
+     */
+    static void saferAdd(List<Object> list, Object obj) {
+        list.add(obj);
+    }
+
     public static void main(String[] args) {
         log.trace("Enter");
 
         legacyRawCollection();
+        refactoredCollection();
+
+        // raw collection vs Object parametrized collection
+        List<String> strings = new ArrayList<>();
+        unsafeAdd(strings, Integer.valueOf(42));
+        try {
+            System.out.println(strings.get(0));
+        } catch (ClassCastException ex) {
+            log.error("Collection misuse detected at runtime", ex);
+        }
+
+        // won't compile
+//        saferAdd(strings, Integer.valueOf(42));
 
         log.trace("Exit");
     }
