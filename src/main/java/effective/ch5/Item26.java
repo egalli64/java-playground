@@ -59,6 +59,8 @@ public class Item26 {
 
     /**
      * The compiler is smarter enough to check the arguments
+     * <p>
+     * package-private to allow commenting out its usage
      */
     static void saferAdd(List<Object> list, Object obj) {
         list.add(obj);
@@ -71,7 +73,7 @@ public class Item26 {
      * The parametric type is not relevant for the algorithm
      */
     @SuppressWarnings("rawtypes")
-    static int numElementsInCommonUnsafe(Set left, Set right) {
+    private static int numElementsInCommonUnsafe(Set left, Set right) {
         int result = 0;
 
         // the compiler can only issue a warning
@@ -91,7 +93,7 @@ public class Item26 {
      * <p>
      * Can't add anything (but null) if the parametric type is unknown
      */
-    static int numElementsInCommon(Set<?> left, Set<?> right) {
+    private static int numElementsInCommon(Set<?> left, Set<?> right) {
         int result = 0;
 
         // won't compile
@@ -104,6 +106,25 @@ public class Item26 {
         }
 
         return result;
+    }
+
+    /**
+     * Classic use of instanceof on generic type
+     */
+    private static void downcasterClassic(Object obj) {
+        if (obj instanceof Set) {
+            Set<?> set = (Set<?>) obj;
+            log.info("A set: {}", set);
+        }
+    }
+
+    /**
+     * Refactored to use pattern matching for instanceof
+     */
+    private static void downcaster(Object obj) {
+        if (obj instanceof Set<?> set) {
+            log.info("A set: {}", set);
+        }
     }
 
     public static void main(String[] args) {
@@ -133,6 +154,10 @@ public class Item26 {
 
         x = numElementsInCommon(values, values2);
         log.warn("The two sets have {} elements in common", x);
+
+        // cast to generic type
+        downcasterClassic(values);
+        downcaster(values);
 
         log.trace("Exit");
     }
