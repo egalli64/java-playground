@@ -37,3 +37,4 @@
 - [Item 27: Eliminate unchecked warnings]
 - [Item 28: Prefer lists to arrays](src/main/java/effective/ch5/Item28.java)
 - [Item 29: Favor generic types](src/main/java/effective/ch5/Item29.java)
+- [Item 30: Favor generic methods](src/main/java/effective/ch5/Item30.java)
