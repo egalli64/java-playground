@@ -11,7 +11,9 @@ package effective.ch5;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -65,6 +67,17 @@ public class Item31 {
         log.info("A collection of numbers: {}", result);
     }
 
+    /**
+     * A more flexible management of parameters
+     * <p>
+     * This magic can't be used on return type
+     */
+    public static <T> Set<T> union(Set<? extends T> s1, Set<? extends T> s2) {
+        Set<T> result = new HashSet<>(s1);
+        result.addAll(s2);
+        return result;
+    }
+
     public static void main(String[] args) {
         log.trace("Enter");
 
@@ -75,6 +88,12 @@ public class Item31 {
         // <T> vs <? super T>
         inflexiblePopAll();
         flexiblePopAll();
+
+        // combining different types in a method call by <? extends T>
+        Set<Integer> integers = Set.of(1, 3, 5);
+        Set<Double> doubles = Set.of(2.0, 4.0, 6.0);
+        Set<Number> numbers = union(integers, doubles);
+        log.info("The resulting union: {}", numbers);
 
         log.trace("Exit");
     }
