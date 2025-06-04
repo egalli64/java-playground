@@ -34,3 +34,5 @@
 
 ### [Chapter 5 - Generics](src/main/java/effective/ch5)
 - [Item 26: Don't use raw types](src/main/java/effective/ch5/Item26.java)
+- [Item 27: Eliminate unchecked warnings]
+- [Item 28: Prefer lists to arrays](src/main/java/effective/ch5/Item28.java)
