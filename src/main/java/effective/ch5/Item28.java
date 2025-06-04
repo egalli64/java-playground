@@ -9,8 +9,13 @@
  */
 package effective.ch5;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import effective.ch5.i28.Chooser;
+import effective.ch5.i28.Chooser2;
 
 /**
  * Prefer lists to arrays
@@ -32,6 +37,16 @@ public class Item28 {
         }
     }
 
+    private static void collectionToArray() {
+        Chooser<String> chooser = new Chooser<>(List.of("A", "B", "C"));
+        log.info("Randomly picked: {}", chooser.choose());
+    }
+
+    private static void collectionsOnly() {
+        Chooser2<String> chooser = new Chooser2<>(List.of("A", "B", "C"));
+        log.info("Randomly picked: {}", chooser.choose());
+    }
+
     private static void listInvariance() {
         // Type mismatch: cannot convert from ArrayList<Long> to List<Object>
         // List<Object> objectList = new ArrayList<Long>();
@@ -43,6 +58,9 @@ public class Item28 {
 
         arrayCovariance();
         listInvariance();
+
+        collectionToArray();
+        collectionsOnly();
 
         log.trace("Exit");
     }
