@@ -9,6 +9,8 @@
  */
 package effective.ch5;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -18,6 +20,8 @@ import effective.ch5.i31.StackExt;
 
 /**
  * Use bounded wild-cards to increase API flexibility
+ * <p>
+ * Following the rule PECS: producer-extends, consumer-super
  */
 public class Item31 {
     private static Logger log = LoggerFactory.getLogger(Item31.class);
@@ -38,12 +42,39 @@ public class Item31 {
         log.info("The first value popped is: {}", numbers.pop());
     }
 
+    private static void inflexiblePopAll() {
+        // prepare a Stack of Number
+        StackExt<Number> numbers = new StackExt<>();
+        numbers.wildPushAll(List.of(1, 2, 3));
+
+        // try to pop all the elements
+        Collection<Object> objects = new ArrayList<>();
+        log.info("An empty collection of objects: {}", objects);
+        // won't compile!
+        // numbers.popAll(objects);
+    }
+
+    private static void flexiblePopAll() {
+        // prepare a Stack of Number
+        StackExt<Number> numbers = new StackExt<>();
+        numbers.wildPushAll(List.of(1, 2, 3));
+
+        // pop all the elements
+        Collection<Number> result = new ArrayList<>();
+        numbers.wildPopAll(result);
+        log.info("A collection of numbers: {}", result);
+    }
+
     public static void main(String[] args) {
         log.trace("Enter");
 
         // <T> vs <? extends T>
         inflexiblePushAll();
         flexiblePushAll();
+
+        // <T> vs <? super T>
+        inflexiblePopAll();
+        flexiblePopAll();
 
         log.trace("Exit");
     }

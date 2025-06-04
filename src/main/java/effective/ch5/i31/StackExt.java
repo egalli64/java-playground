@@ -10,6 +10,7 @@
 package effective.ch5.i31;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.EmptyStackException;
 
 /**
@@ -39,7 +40,7 @@ public class StackExt<T> {
     }
 
     /**
-     * Wild-card type for a parameter that serves as a T producer
+     * Wild-card type for the parameter that serves as a T producer
      */
     public void wildPushAll(Iterable<? extends T> src) {
         for (T e : src)
@@ -52,6 +53,22 @@ public class StackExt<T> {
         T result = elements[--size];
         elements[size] = null; // Eliminate obsolete reference
         return result;
+    }
+
+    /**
+     * inflexible: the elements should be of the base parameter type
+     */
+    public void popAll(Collection<T> dst) {
+        while (!isEmpty())
+            dst.add(pop());
+    }
+
+    /**
+     * Wild-card type for the (out) parameter that serves as a T consumer
+     */
+    public void wildPopAll(Collection<? super T> dst) {
+        while (!isEmpty())
+            dst.add(pop());
     }
 
     public boolean isEmpty() {
