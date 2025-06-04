@@ -39,3 +39,5 @@
 - [Item 29: Favor generic types](src/main/java/effective/ch5/Item29.java)
 - [Item 30: Favor generic methods](src/main/java/effective/ch5/Item30.java)
 - [Item 31: Use bounded wild-cards to increase API flexibility](src/main/java/effective/ch5/Item31.java)
+- [Item 32: Combine generics and varargs judiciously]
+- [Item 33: Consider type-safe heterogeneous containers]
