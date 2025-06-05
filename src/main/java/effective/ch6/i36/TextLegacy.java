@@ -1,13 +1,22 @@
+/*
+ * Java Playground
+ * 
+ * https://github.com/egalli64/java-playground
+ * 
+ * Examples from Effective Java (3rd edition) by Joshua Block
+ * 
+ * Chapter 6: Enums and Annotations
+ */
 package effective.ch6.i36;
 
 /**
- * Bit field enumeration constants - OBSOLETE!
+ * Legacy use of bit field enumeration constants
  */
 public class TextLegacy {
-    public static final int STYLE_BOLD = 1 << 0; // 1
-    public static final int STYLE_ITALIC = 1 << 1; // 2
-    public static final int STYLE_UNDERLINE = 1 << 2; // 4
-    public static final int STYLE_STRIKETHROUGH = 1 << 3; // 8
+    public static final int STYLE_BOLD = 1 << 0;
+    public static final int STYLE_ITALIC = 1 << 1;
+    public static final int STYLE_UNDERLINE = 1 << 2;
+    public static final int STYLE_STRIKETHROUGH = 1 << 3;
 
     /**
      * @param styles Bitwise OR of zero or more STYLE_ constants
