@@ -45,3 +45,4 @@
 ### [Chapter 6 - Enums and Annotations](src/main/java/effective/ch6)
 - [Item 34: Use enums instead of int constants](src/main/java/effective/ch6/Item34.java)
 - [Item 35: Use instance fields instead of ordinals](src/main/java/effective/ch6/Item35.java)
+- [Use EnumSet instead of bit fields](src/main/java/effective/ch6/Item36.java)
