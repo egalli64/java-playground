@@ -18,6 +18,8 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import effective.ch6.i37.Phase;
+import effective.ch6.i37.Phase.Transition;
 import effective.ch6.i37.Plant;
 
 /**
@@ -52,10 +54,18 @@ public class Item37 {
         System.out.println("Plants by life cycle: " + plantsByLifeCycle);
     }
 
+    private static void moreComplexMapping() {
+        Phase from = Phase.SOLID;
+        Phase to = Phase.LIQUID;
+        Transition t = Phase.Transition.from(from, to);
+        log.info("Transition from {} to {} is {}", from, to, t);
+    }
+
     public static void main(String[] args) {
         log.trace("Enter");
 
         mappingEnumToData();
+        moreComplexMapping();
 
         log.trace("Exit");
     }
