@@ -12,6 +12,7 @@ package effective.ch6;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import effective.ch6.i34.Operation;
 import effective.ch6.i34.Planet;
 
 /**
@@ -47,13 +48,21 @@ public class Item34 {
 
         // 2. Still meaningless, but it is difficult to make it compilable
 //        var y = (Apple.FUJI - Orange.TEMPLE) / (Apple.PIPPIN);
+        System.out.println();
 
         // 3. Using a richer enum
         double earthWeight = 50.0;
         double mass = earthWeight / Planet.EARTH.surfaceGravity();
         log.info("Weight on Earth is {}, mass is {}", earthWeight, mass);
-        for (Planet p : Planet.values())
-            System.out.printf("Weight on %s is %f\n", p, p.surfaceWeight(mass));
+        for (Planet planet : Planet.values()) {
+            System.out.printf("Weight on %s is %f\n", planet, planet.surfaceWeight(mass));
+        }
+        System.out.println();
+
+        // 4. An enum with behavior
+        for (Operation operation : Operation.values()) {
+            System.out.printf("Applying %s gives: %f\n", operation, operation.apply(7, 6));
+        }
 
         log.trace("Exit");
     }
