@@ -41,3 +41,6 @@
 - [Item 31: Use bounded wild-cards to increase API flexibility](src/main/java/effective/ch5/Item31.java)
 - [Item 32: Combine generics and varargs judiciously]
 - [Item 33: Consider type-safe heterogeneous containers]
+
+### [Chapter 6 - Enums and Annotations](src/main/java/effective/ch6)
+- [Item 34: Use enums instead of int constants]
