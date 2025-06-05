@@ -47,3 +47,7 @@
 - [Item 35: Use instance fields instead of ordinals](src/main/java/effective/ch6/Item35.java)
 - [Item 36: Use EnumSet instead of bit fields](src/main/java/effective/ch6/Item36.java)
 - [Item 37: Use EnumMap instead of ordinal indexing](src/main/java/effective/ch6/Item37.java)
+- [Item 38: Emulate extensible enums with interfaces]
+- [Item 39: Prefer annotations to naming patterns]
+- [Item 40: Consistently use the Override annotation]
+- [Item 41: Use marker interfaces to define types]
