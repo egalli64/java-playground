@@ -9,10 +9,13 @@
  */
 package effective.ch6;
 
+import java.util.EnumSet;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import effective.ch6.i36.TextLegacy;
+import effective.ch6.i36.TextModern;
 
 /**
  * Use EnumSet instead of bit fields
@@ -22,20 +25,25 @@ public class Item36 {
 
     private static void legacyCombinable() {
         TextLegacy text = new TextLegacy();
-        for (int i = 0; i < 16; i++) {
-            text.applyStyles(i);
-        }
 
         // typical usage
-        System.out.print("Bold + underline: ");
-        text.applyStyles(TextLegacy.STYLE_BOLD | TextLegacy.STYLE_UNDERLINE);
+        System.out.print("Classic bold + italic: ");
+        text.applyStyles(TextLegacy.STYLE_BOLD | TextLegacy.STYLE_ITALIC);
+    }
+
+    private static void modernCombinable() {
+        TextModern text = new TextModern();
+
+        // typical usage
+        System.out.print("Modern bold + italic: ");
+        text.applyStyles(EnumSet.of(TextModern.Style.BOLD, TextModern.Style.ITALIC));
     }
 
     public static void main(String[] args) {
         log.trace("Enter");
 
-        // legacy way of managing combinable options
         legacyCombinable();
+        modernCombinable();
 
         log.trace("Exit");
     }
