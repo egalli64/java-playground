@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import effective.ch6.i34.Operation;
+import effective.ch6.i34.OperationExt;
 import effective.ch6.i34.Planet;
 
 /**
@@ -60,8 +61,18 @@ public class Item34 {
         System.out.println();
 
         // 4. An enum with behavior
+        double left = 6.0;
+        double right = 7.0;
+        log.info("Operating on {} and {}", left, right);
         for (Operation operation : Operation.values()) {
-            System.out.printf("Applying %s gives: %f\n", operation, operation.apply(7, 6));
+            System.out.printf("%.2f %s %.2f = %.2f\n", left, operation, right, operation.apply(left, right));
+        }
+        System.out.println();
+
+        // 4b. Improving the Operation with a more natural toString()
+
+        for (OperationExt operation : OperationExt.values()) {
+            System.out.printf("%.2f %s %.2f = %.2f\n", left, operation, right, operation.apply(left, right));
         }
 
         log.trace("Exit");
