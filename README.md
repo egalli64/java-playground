@@ -51,3 +51,6 @@
 - [Item 39: Prefer annotations to naming patterns]
 - [Item 40: Consistently use the Override annotation]
 - [Item 41: Use marker interfaces to define types]
+
+### [Chapter 7 - Lambdas and Streams](src/main/java/effective/ch7)
+- [Item 42: Prefer lambdas to anonymous classes](src/main/java/effective/ch7/Item42.java)
