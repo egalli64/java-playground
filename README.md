@@ -54,3 +54,4 @@
 
 ### [Chapter 7 - Lambdas and Streams](src/main/java/effective/ch7)
 - [Item 42: Prefer lambdas to anonymous classes](src/main/java/effective/ch7/Item42.java)
+- [Item 43: Prefer method references to lambdas](src/main/java/effective/ch7/Item43.java)
