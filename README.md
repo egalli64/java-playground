@@ -60,3 +60,6 @@
 - [Item 46: Prefer side-effect-free functions in streams]
 - [Item 47: Prefer Collection to Stream as a return type]
 - [Item 48: Use caution when making streams parallel]
+
+### [Chapter 8 - Methods](src/main/java/effective/ch8)
+- [Item 49: Check parameters for validity](src/main/java/effective/ch8/Item49.java)
