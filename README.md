@@ -63,3 +63,4 @@
 
 ### [Chapter 8 - Methods](src/main/java/effective/ch8)
 - [Item 49: Check parameters for validity](src/main/java/effective/ch8/Item49.java)
+- [Item 50: Make defensive copies when needed](src/main/java/effective/ch8/Item50.java)
