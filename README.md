@@ -64,3 +64,9 @@
 ### [Chapter 8 - Methods](src/main/java/effective/ch8)
 - [Item 49: Check parameters for validity](src/main/java/effective/ch8/Item49.java)
 - [Item 50: Make defensive copies when needed](src/main/java/effective/ch8/Item50.java)
+- [Item 51: Design method signatures carefully]
+- [Item 52: Use overloading judiciously]
+- [Item 53: Use varargs judiciously]
+- [Item 54: Return empty collections or arrays, not nulls]
+- [Item 55: Return optionals judiciously]
+- [Item 56: Write doc comments for all exposed API elements]
