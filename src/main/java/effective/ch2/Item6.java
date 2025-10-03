@@ -41,11 +41,11 @@ public class Item6 {
 
     private static void booleanCreation() {
         // Don't do this
-        @SuppressWarnings("removal")
+        @SuppressWarnings("deprecation")
         Boolean b1 = new Boolean("true");
         System.out.println("Boolean b1 id: " + System.identityHashCode(b1));
 
-        @SuppressWarnings("removal")
+        @SuppressWarnings("deprecation")
         Boolean b2 = new Boolean("true");
         System.out.println("Boolean b2 id: " + System.identityHashCode(b2));
 
